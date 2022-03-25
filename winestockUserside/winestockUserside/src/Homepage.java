@@ -11,46 +11,41 @@ public class Homepage extends JFrame{
     private JButton orderlist;
     private JButton storageList;
     private JButton warningButton;
-    private JButton button6;
-    private JButton co2;
-    private JButton customer;
+    private JButton commentButton;
     private JPanel homepagePanel;
     private JLabel bar_image;
     private JButton profile;
     private JLabel BAR_MANAGER;
+    private JLabel peopleLable;
 
 
     public Homepage(String title)
     {
         super(title);
+
         //homepagePanel.setBackground(Color.white);
         orderlist.setText("Order List");
         //bar. setIcon(new ImageIcon(Homepage.class.getResource("/com/Bar_image.jpg")));
-        profile.setLocation(275,150);
-        profile.setSize(95, 100);
-        BAR_MANAGER.setLocation(200,50);
+        profile.setLocation(200,150);
+        profile.setSize(100, 100);
+        BAR_MANAGER.setLocation(120,50);
         BAR_MANAGER.setSize(300, 50);
         profile. setIcon(new ImageIcon(Homepage.class.getResource("/com/profile_icon.png")));
 
         warningButton. setIcon(new ImageIcon(Homepage.class.getResource("/com/notification_icon.png")));
-        button6. setIcon(new ImageIcon(Homepage.class.getResource("/com/Notes_icon.jpg")));
+        commentButton. setIcon(new ImageIcon(Homepage.class.getResource("/com/Notes_icon.jpg")));
         settingButton. setIcon(new ImageIcon(Homepage.class.getResource("/com/settings_icon.png")));
-
         settingButton.setBackground(Color.WHITE);
         warningButton.setBackground(Color.WHITE);
-        button6.setBackground(Color.WHITE);
+        commentButton.setBackground(Color.WHITE);
         storageList.setBackground(Color.WHITE);
         orderlist.setBackground(Color.WHITE);
-        customer.setBackground(Color.WHITE);
-        co2.setBackground(Color.WHITE);
-
+        //homepagePanel.setBackground(Color.GRAY);
         storageList.setIcon(new ImageIcon(Homepage.class.getResource("/com/list_icon.png")));
         orderlist.setIcon(new ImageIcon(Homepage.class.getResource("/com/list_icon.png")));
-        co2.setIcon(new ImageIcon(Homepage.class.getResource("/com/Co2_carbon_dioxide_icon.png")));
-        customer.setIcon(new ImageIcon(Homepage.class.getResource("/com/people_icon.png")));
+        peopleLable.setIcon(new ImageIcon(Homepage.class.getResource("/com/people_icon.png")));
         warningButton.setSize(80,80);
         storageList.setText("Storage List");
-        co2.setText("co2 info");
 
         bar_image.add(profile);
         bar_image.add(BAR_MANAGER);
@@ -66,7 +61,16 @@ public class Homepage extends JFrame{
         JSONArray array = new JSONArray(response);
         JSONObject obj = new JSONObject();
 
-
+        commentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame comment =  new Comment("comment");
+                comment.setVisible(true);
+                comment.setSize(600,800);
+                comment.setLocation(500,0);
+                dispose();
+            }
+        });
         warningButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -95,7 +99,7 @@ public class Homepage extends JFrame{
         JSONArray peoplearray = new JSONArray(response);
         JSONObject peopleobj = peoplearray.getJSONObject(0);
         int people = peopleobj.getInt("number");
-        customer.setText("currently " + people +" people inside");
+        peopleLable.setText("there are currently "+people+" people inside ");
 
         orderlist.addActionListener(new ActionListener() {
             @Override
@@ -113,7 +117,7 @@ public class Homepage extends JFrame{
                 JFrame stock = new stock("stock");
                 stock.setVisible(true);
                 stock.setSize(600,800);
-                stock.setLocation(500,100);
+                stock.setLocation(500,0);
                 dispose();
             }
         });
@@ -122,7 +126,7 @@ public class Homepage extends JFrame{
     public static void main(String[] args)
     {
         JFrame ui = new Homepage("homepage");
-        ui.setSize(600,750);
+        ui.setSize(600,800);
         ui.setLocation(500,0);
         ui.setVisible(true);
     }

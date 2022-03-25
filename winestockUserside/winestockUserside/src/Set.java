@@ -40,7 +40,7 @@ public class Set extends JFrame{
                 JFrame ui = new Homepage("homepage");
                 ui.setVisible(true);
                 ui.setSize(600,800);
-                ui.setLocation(500,100);
+                ui.setLocation(500,0);
                 dispose();
             }
         });

@@ -53,7 +53,7 @@ public class stock extends JFrame {
                 JFrame ui = new Homepage("homepage");
                 ui.setVisible(true);
                 ui.setSize(600,800);
-                ui.setLocation(500,100);
+                ui.setLocation(500,0);
                 dispose();
             }
         });
@@ -63,7 +63,7 @@ public class stock extends JFrame {
                 JFrame ui = new order(obj1.getString("winetype"));
                 ui.setVisible(true);
                 ui.setSize(600,800);
-                ui.setLocation(500,100);
+                ui.setLocation(500,0);
                 dispose();
             }
         });
@@ -73,7 +73,7 @@ public class stock extends JFrame {
                 JFrame ui = new order2(obj2.getString("winetype"));
                 ui.setVisible(true);
                 ui.setSize(600,800);
-                ui.setLocation(500,100);
+                ui.setLocation(500,0);
                 dispose();
             }
         });
@@ -84,7 +84,7 @@ public class stock extends JFrame {
                 JFrame ui = new order3(obj3.getString("winetype"));
                 ui.setVisible(true);
                 ui.setSize(600,800);
-                ui.setLocation(500,100);
+                ui.setLocation(500,0);
                 dispose();
             }
         });

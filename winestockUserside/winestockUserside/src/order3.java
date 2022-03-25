@@ -44,7 +44,7 @@ public class order3 extends JFrame{
                 JFrame ui = new Homepage("homepage");
                 ui.setVisible(true);
                 ui.setSize(600,800);
-                ui.setLocation(500,100);
+                ui.setLocation(500,0);
                 dispose();
             }
         });
@@ -65,7 +65,7 @@ public class order3 extends JFrame{
                 JFrame orderlist =  new orderList("orderlist");
                 orderlist.setVisible(true);
                 orderlist.setSize(600,800);
-                orderlist.setLocation(500,100);
+                orderlist.setLocation(500,0);
                 dispose();
             }
         });
@@ -75,7 +75,7 @@ public class order3 extends JFrame{
                 JFrame stock = new stock("stock");
                 stock.setVisible(true);
                 stock.setSize(600,800);
-                stock.setLocation(500,100);
+                stock.setLocation(500,0);
                 dispose();}
         });
 

@@ -24,8 +24,6 @@ public class order extends JFrame{
         String response = db.makeGETRequest("https://studev.groept.be/api/a21ib2c02/getstock");
         JSONArray array = new JSONArray(response);
 
-        panel1.setBackground(Color.GRAY);
-        homeButton. setIcon(new ImageIcon(stock.class.getResource("/com/Home_icon.png")));
         confirmOrderButton. setIcon(new ImageIcon(stock.class.getResource("/com/confirm_icon.png")));
         cancelButton. setIcon(new ImageIcon(stock.class.getResource("/com/cancel_icon.png")));
 
@@ -33,18 +31,20 @@ public class order extends JFrame{
 
 
         name.setText(array.getJSONObject(0).getString("winetype"));
-        homeButton.setText("home");
-        homeButton. setIcon(new ImageIcon(stock.class.getResource("/com/Home_icon.png")));
         //this.oList = new orderList("orderList",0,0,0);
+        panel1.setBackground(Color.GRAY);
         setContentPane(panel1);
 
+
+        homeButton. setIcon(new ImageIcon(stock.class.getResource("/com/Home_icon.png")));
+        homeButton.setText("home");
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame ui = new Homepage("homepage");
                 ui.setVisible(true);
                 ui.setSize(600,800);
-                ui.setLocation(500,100);
+                ui.setLocation(500,0);
                 dispose();
             }
         });
@@ -65,7 +65,7 @@ public class order extends JFrame{
                 JFrame orderlist =  new orderList("orderlist");
                 orderlist.setVisible(true);
                 orderlist.setSize(600,800);
-                orderlist.setLocation(500,100);
+                orderlist.setLocation(500,0);
                 dispose();
             }
         });
@@ -75,7 +75,7 @@ public class order extends JFrame{
                 JFrame stock = new stock("stock");
                 stock.setVisible(true);
                 stock.setSize(600,800);
-                stock.setLocation(500,100);
+                stock.setLocation(500,0);
                 dispose();}
         });
 

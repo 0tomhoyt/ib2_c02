@@ -66,7 +66,7 @@ public class orderList extends JFrame{
                 JFrame orderlist =  new orderList("orderlist");
                 orderlist.setVisible(true);
                 orderlist.setSize(600,800);
-                orderlist.setLocation(500,100);
+                orderlist.setLocation(500,0);
                 dispose();
             }
         });
@@ -76,7 +76,7 @@ public class orderList extends JFrame{
                 JFrame ui = new Homepage("homepage");
                 ui.setVisible(true);
                 ui.setSize(600,800);
-                ui.setLocation(500,100);
+                ui.setLocation(500,0);
                 dispose();
             }
         });
