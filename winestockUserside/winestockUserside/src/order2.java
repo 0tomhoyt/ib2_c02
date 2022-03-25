@@ -24,7 +24,7 @@ public class order2 extends JFrame{
         String response = db.makeGETRequest("https://studev.groept.be/api/a21ib2c02/getstock");
         JSONArray array = new JSONArray(response);
 
-        panel1.setBackground(Color.GRAY);
+        panel1.setBackground(Color.LIGHT_GRAY);
         homeButton. setIcon(new ImageIcon(stock.class.getResource("/com/Home_icon.png")));
         confirmOrderButton. setIcon(new ImageIcon(stock.class.getResource("/com/confirm_icon.png")));
         cancelButton. setIcon(new ImageIcon(stock.class.getResource("/com/cancel_icon.png")));

@@ -21,7 +21,7 @@ public class Set extends JFrame{
     public Set(String title)
     {
         super(title);
-        setPagePanel.setBackground(Color.WHITE);
+        setPagePanel.setBackground(Color.LIGHT_GRAY);
         setLiqureNameLabel.setText("   set the liqure type combined to Sensor");
         setCurrentNumberLabel.setText("   correct the current number of people inside");
         setLiqureNameButton.setText("SET");

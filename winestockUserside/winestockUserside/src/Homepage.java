@@ -40,7 +40,7 @@ public class Homepage extends JFrame{
         commentButton.setBackground(Color.WHITE);
         storageList.setBackground(Color.WHITE);
         orderlist.setBackground(Color.WHITE);
-        //homepagePanel.setBackground(Color.GRAY);
+        homepagePanel.setBackground(Color.LIGHT_GRAY);
         storageList.setIcon(new ImageIcon(Homepage.class.getResource("/com/list_icon.png")));
         orderlist.setIcon(new ImageIcon(Homepage.class.getResource("/com/list_icon.png")));
         peopleLable.setIcon(new ImageIcon(Homepage.class.getResource("/com/people_icon.png")));

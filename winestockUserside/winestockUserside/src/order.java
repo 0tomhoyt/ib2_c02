@@ -32,7 +32,7 @@ public class order extends JFrame{
 
         name.setText(array.getJSONObject(0).getString("winetype"));
         //this.oList = new orderList("orderList",0,0,0);
-        panel1.setBackground(Color.GRAY);
+        panel1.setBackground(Color.LIGHT_GRAY);
         setContentPane(panel1);
 
 

@@ -23,8 +23,7 @@ public class stock extends JFrame {
     public stock(String title) {
 
         super(title);
-
-        panel1.setBackground(Color.GRAY);
+        panel1.setBackground(Color.LIGHT_GRAY);
         DataBase db = new DataBase();
         String response = db.makeGETRequest("https://studev.groept.be/api/a21ib2c02/getstock");
         JSONArray array = new JSONArray(response);

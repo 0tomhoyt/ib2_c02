@@ -66,7 +66,7 @@ public class Comment extends JFrame{
             }
         });
 
-        commentPanel.setBackground(Color.GRAY);
+        commentPanel.setBackground(Color.LIGHT_GRAY);
         setContentPane(commentPanel);
     }
 }

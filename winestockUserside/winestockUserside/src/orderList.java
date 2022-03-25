@@ -27,7 +27,7 @@ public class orderList extends JFrame{
 
         super(title);
 
-        panel1.setBackground(Color.GRAY);
+        panel1.setBackground(Color.LIGHT_GRAY);
         DataBase db = new DataBase();
         String response = db.makeGETRequest("https://studev.groept.be/api/a21ib2c02/getstock");
         JSONArray array1 = new JSONArray(response);
@@ -40,6 +40,10 @@ public class orderList extends JFrame{
         homeButton.setText("home");
         homeButton. setIcon(new ImageIcon(stock.class.getResource("/com/Home_icon.png")));
         clear.setText("clear");
+
+        clear.setBackground(Color.WHITE);
+        homeButton.setBackground(Color.WHITE);
+
         String response2 = db.makeGETRequest("https://studev.groept.be/api/a21ib2c02/getorderlist");
         JSONArray array2 = new JSONArray(response2);
         JSONObject obj4 = array2.getJSONObject(0);
@@ -65,7 +69,7 @@ public class orderList extends JFrame{
                 db.makeGETRequest("https://studev.groept.be/api/a21ib2c02/updateorderlist/0/3");
                 JFrame orderlist =  new orderList("orderlist");
                 orderlist.setVisible(true);
-                orderlist.setSize(600,800);
+                orderlist.setSize(600,750);
                 orderlist.setLocation(500,0);
                 dispose();
             }
@@ -75,7 +79,7 @@ public class orderList extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame ui = new Homepage("homepage");
                 ui.setVisible(true);
-                ui.setSize(600,800);
+                ui.setSize(600,750);
                 ui.setLocation(500,0);
                 dispose();
             }
