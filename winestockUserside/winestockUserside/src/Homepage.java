@@ -7,10 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Homepage extends JFrame{
-    private JButton button1;
+    private JButton settingButton;
     private JButton orderlist;
     private JButton storageList;
-    private JButton button4;
+    private JButton warningButton;
     private JButton button6;
     private JButton co2;
     private JButton customer;
@@ -32,12 +32,12 @@ public class Homepage extends JFrame{
         BAR_MANAGER.setSize(300, 50);
         profile. setIcon(new ImageIcon(Homepage.class.getResource("/com/profile_icon.png")));
 
-        button4. setIcon(new ImageIcon(Homepage.class.getResource("/com/notification_icon.png")));
+        warningButton. setIcon(new ImageIcon(Homepage.class.getResource("/com/notification_icon.png")));
         button6. setIcon(new ImageIcon(Homepage.class.getResource("/com/Notes_icon.jpg")));
-        button1. setIcon(new ImageIcon(Homepage.class.getResource("/com/settings_icon.png")));
+        settingButton. setIcon(new ImageIcon(Homepage.class.getResource("/com/settings_icon.png")));
 
-        button1.setBackground(Color.WHITE);
-        button4.setBackground(Color.WHITE);
+        settingButton.setBackground(Color.WHITE);
+        warningButton.setBackground(Color.WHITE);
         button6.setBackground(Color.WHITE);
         storageList.setBackground(Color.WHITE);
         orderlist.setBackground(Color.WHITE);
@@ -48,7 +48,7 @@ public class Homepage extends JFrame{
         orderlist.setIcon(new ImageIcon(Homepage.class.getResource("/com/list_icon.png")));
         co2.setIcon(new ImageIcon(Homepage.class.getResource("/com/Co2_carbon_dioxide_icon.png")));
         customer.setIcon(new ImageIcon(Homepage.class.getResource("/com/people_icon.png")));
-        button4.setSize(80,80);
+        warningButton.setSize(80,80);
         storageList.setText("Storage List");
         co2.setText("co2 info");
 
@@ -66,18 +66,30 @@ public class Homepage extends JFrame{
         JSONArray array = new JSONArray(response);
         JSONObject obj = new JSONObject();
 
-        for (int i = 0; i < 3; i++) {
-            obj =array.getJSONObject(i);
-            if (obj.getInt("number")<=5)
-            {
-                JFrame lowStock = new LowStock();
-                lowStock.setSize(400,200);
-                lowStock.setLocationRelativeTo(storageList);
-                lowStock.setVisible(true);
-                lowStock.setAlwaysOnTop(true);
-                break;
+
+        warningButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < 3; i++) {
+                    JFrame lowStock = new LowStock();
+                    lowStock.setSize(400,200);
+                    lowStock.setLocationRelativeTo(storageList);
+                    lowStock.setVisible(true);
+                    lowStock.setAlwaysOnTop(true);
+                    break;
+                }
             }
-        }
+        });
+        settingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame setting =  new Set("orderlist");
+                setting.setVisible(true);
+                setting.setSize(600,800);
+                setting.setLocation(500,0);
+                dispose();
+            }
+        });
         //get number of people inside
         response = db.makeGETRequest("https://studev.groept.be/api/a21ib2c02/getPeople");
         JSONArray peoplearray = new JSONArray(response);
