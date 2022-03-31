@@ -4,7 +4,7 @@ import time                 #library needed to wait
 
 spi = spidev.SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 1000000
+spi.max_speed_hz = 1000000  
 sensor1 = False             #both motion sensors are initially set to False
 sensor2 = False
 
@@ -28,7 +28,7 @@ if __name__ == "__main__":
         v3 = (readChannel(3)) / 1023.0 * 5
 
 
-        if(v1<0.5):                             #first sensor is triggered
+        if(v2<0.5):                             #first sensor is triggered
             sensor1= True
             if (sensor2==True):                 #second sensor is also triggered (person leaving)
                 mycursor = mydb.cursor()
@@ -39,7 +39,7 @@ if __name__ == "__main__":
                 sensor2 = False
 
 
-        if(v2<0.5):                             #second sensor is triggered
+        if(v3<0.5):                             #second sensor is triggered
             sensor2 = True
             if (sensor2==True):                 #first sensor is also triggered (person entering)
                 mycursor = mydb.cursor()
